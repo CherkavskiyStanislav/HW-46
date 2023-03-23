@@ -44,7 +44,24 @@ const couterReducer = (state = {
                 ...state,
                 isLoggedIn: true
             };
-        
+        case 'logOut':
+            return {
+                coffee: 0,
+                sugar: 0,
+                isLoggedIn: false
+            };
+        case "Upload":
+            return {
+                ...state,
+                coffee: parseInt(localStorage.getItem("coffee")),
+                sugar: parseInt(localStorage.getItem("sugar")),
+            };
+        case "Clear":
+            return {
+                coffee: 0,
+                sugar: 0,
+                isLoggedIn: true,
+            }
         default:
             return state;
     }
